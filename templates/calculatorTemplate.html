@@ -1,0 +1,74 @@
+<h1>Calculator App</h1>
+<div class="calcContainer">
+	<table class="calcTable">
+		<tbody>
+			<tr>
+				<td colspan="1">
+					<button class="clearBtn" (click)="clearValue()">C</button>
+				</td>
+				<td colspan="3">
+					<textarea disabled="disabled" rows="1" cols="3" class="resultArea" [(ngModel)]="resultValue"></textarea>
+				</td>
+			</tr>
+			<tr>
+				<td colspan="1">
+					<button class="numberBtn" (click)="appendValue('7')">7</button>
+				</td>
+				<td colspan="1">
+					<button class="numberBtn" (click)="appendValue('8')">8</button>
+				</td>
+				<td colspan="1">
+					<button class="numberBtn" (click)="appendValue('9')">9</button>
+				</td>
+				<td colspan="1">
+					<button class="operatorBtn" (click)="appendValue('+')">+</button>
+				</td>
+			</tr>
+			
+			<tr>
+				<td colspan="1">
+					<button class="numberBtn" (click)="appendValue('4')">4</button>
+				</td>
+				<td colspan="1">
+					<button class="numberBtn" (click)="appendValue('5')">5</button>
+				</td>
+				<td colspan="1">
+					<button class="numberBtn" (click)="appendValue('6')">6</button>
+				</td>
+				<td colspan="1">
+					<button class="operatorBtn" (click)="appendValue('-')">-</button>
+				</td>
+			</tr>
+			
+			<tr>
+				<td colspan="1">
+					<button class="numberBtn" (click)="appendValue('1')">1</button>
+				</td>
+				<td colspan="1">
+					<button class="numberBtn" (click)="appendValue('2')">2</button>
+				</td>
+				<td colspan="1">
+					<button class="numberBtn" (click)="appendValue('3')">3</button>
+				</td>
+				<td colspan="1">
+					<button class="operatorBtn" (click)="appendValue('%')">%</button>
+				</td>
+			</tr>
+			
+			<tr>
+				<td colspan="1">
+					<button class="numberBtn" (click)="appendValue('0')">0</button>
+				</td>
+				<td colspan="1">
+					<button class="numberBtn" (click)="appendValue('.')">.</button>
+				</td>
+				<td colspan="1">
+					<button class="numberBtn" (click)="calculateValue()">=</button>
+				</td>
+				<td colspan="1">
+					<button class="operatorBtn" (click)="appendValue('x')">x</button>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
