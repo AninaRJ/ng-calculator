@@ -1,0 +1,61 @@
+@CHARSET "ISO-8859-1";
+body{
+	font-family: "Helvetica";
+	font-weight: bold;
+	font-size: 17px;
+}
+
+h1{
+	text-align: justify;
+}
+
+.calcContainer{
+	text-align: center;
+}
+
+.calcTable{
+	border: 0px;
+	height: 200px;
+	width: 500px;
+}
+
+.calcTable tr{
+	padding-bottom: 10px;
+	font-weight: bold;
+	height: 50px;
+}
+
+.clearBtn{
+	background-color: teal;
+	color: white;
+	height: 50px;
+	width: 50px;
+}
+
+.resultArea{
+	background-color: black;
+	color: white;
+	width: 100%;
+	height: 50px;
+	font-size: 25px;
+	text-align:right;
+	vertical-align: middle;
+}
+
+.numberBtn{
+	background-color: light-gray;
+	color: gray;
+	height: 50px;
+	width: 50px;
+}
+
+.operatorBtn{
+	background-color: light-gray;
+	color: gray;
+	height: 50px;
+	width: 50px;
+}
+
+button:hover{
+	cursor: pointer;
+}
