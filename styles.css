@@ -44,7 +44,8 @@ h1{
 
 .numberBtn{
 	background-color: light-gray;
-	color: gray;
+	color: black;
+	font-weight: bold;
 	height: 50px;
 	width: 50px;
 }
