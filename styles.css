@@ -43,7 +43,6 @@ h1{
 }
 
 .numberBtn{
-	background-color: light-gray;
 	color: black;
 	font-weight: bold;
 	height: 50px;
@@ -51,7 +50,6 @@ h1{
 }
 
 .operatorBtn{
-	background-color: light-gray;
 	color: gray;
 	height: 50px;
 	width: 50px;
