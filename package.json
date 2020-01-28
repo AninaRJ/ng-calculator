@@ -58,5 +58,6 @@
     "protractor": "^3.3.0",
     "rimraf": "^2.5.2"
   },
-  "repository": {}
+  "repository": {},
+  "publishConfig": { "registry": "https://npm.pkg.github.com/" }
 }
