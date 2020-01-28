@@ -17,7 +17,7 @@
     "webdriver:update": "webdriver-manager update"
   },
   "keywords": [],
-  "author": "",
+  "author": "aninarj",
   "license": "ISC",
   "dependencies": {
     "@angular/common":  "2.0.0-rc.1",
