@@ -65,6 +65,7 @@ pipeline {
               docker { 
                     image 'centos:7'
                     label "IRIS_Build_Machine"
+                    args "-v /var/run/docker.sock:/var/run/docker.sock -v /root/local_m2/ra/.m2:/root/.m2"
                }
           }
           stages{
