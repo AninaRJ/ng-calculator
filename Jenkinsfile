@@ -28,7 +28,7 @@ pipeline {
             }
         }
     
-    stage('BUILD') {
+    stage('BUILD AND RUN') {
             agent { 
                 docker { 
                     image 'centos:7'
@@ -58,31 +58,20 @@ pipeline {
                         '''
                     }
                 }
+                stage('Start container'){
+                      steps{
+                          sh '''
+                                docker run -p 49160:7070 -d ng-calculator:$BUILD_NUMBER
+                            '''
+                      }
+                  }
+                  stage('Check status'){
+                      steps{
+                          sh 'curl -i localhost:49160'
+                      }
+                  }
             }
     }
-      stage('RUN'){
-          agent{
-              docker { 
-                    image 'centos:7'
-                    label "IRIS_Build_Machine"
-                    args "-v /var/run/docker.sock:/var/run/docker.sock -v /root/local_m2/ra/.m2:/root/.m2"
-               }
-          }
-          stages{
-              stage('Start container'){
-                  steps{
-                      sh '''
-                            docker run -p 49160:7070 -d ng-calculator:$BUILD_NUMBER
-                        '''
-                  }
-              }
-              stage('Check status'){
-                  steps{
-                      sh 'curl -i localhost:49160'
-                  }
-              }
-          }
-      }
   }
 }
   
