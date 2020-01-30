@@ -53,15 +53,15 @@ pipeline {
                         '''
                     }
                 }
-             /*stage('Cleanup'){
+             stage('Cleanup'){
                   steps{
                       sh '''
                       if [[ "$(docker images |grep 'ng-calculator')" != "" ]]; then
-                          docker rmi -f $(docker images |grep 'ng-calculator')
+                          docker image rm -f ng-calculator:$BUILD_NUMBER-1
                       fi
                       '''
                   }
-              }*/
+              }
               stage('Compile and Build') {
                     steps {
                         sh '''
@@ -80,7 +80,7 @@ pipeline {
                       steps{
                           sh 'curl -i localhost:49160'
                       }
-                  }*/
+                  }
                 stage('Upload Images') {
                     steps {
                         parallel (
@@ -100,7 +100,7 @@ pipeline {
                            
                         '''
                     }
-                }
+                }*/
 
             }
     }
