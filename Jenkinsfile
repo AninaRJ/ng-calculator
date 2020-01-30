@@ -49,7 +49,7 @@ pipeline {
                     steps {
                         sh '''
                             mkdir -p $BUILD_FOLDER
-                            git clone https://$GIT_USER:$GIT_USER_PERSONAL_ACCESS_TOKEN@https://github.com/AninaRJ/ng-calculator.git -b $REPO_TAG $BUILD_FOLDER/ng-calculator
+                            git clone https://github.com/AninaRJ/ng-calculator.git -b $REPO_TAG $BUILD_FOLDER/ng-calculator
                         '''
                     }
                 }
