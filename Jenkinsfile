@@ -57,7 +57,7 @@ pipeline {
                   steps{
                       sh '''
                       if [[ "$(docker images |grep 'ng-calculator')" != "" ]]; then
-                          docker rmi -f $(docker images |grep 'ng-calculator')
+                          docker rmi -f $(docker images --filter 'before=ng-calculator:$BUILD_NUMBER'|grep 'ng-calculator')
                       fi
                       '''
                   }
