@@ -47,7 +47,7 @@ pipeline {
                     steps {
                         sh '''
                             mkdir -p $BUILD_FOLDER
-                            git clone https://github.com/AninaRJ/ng-calculator.git -b $REPO_TAG $BUILD_FOLDER
+                            git clone https://github.com/AninaRJ/ng-calculator.git -b $REPO_TAG $BUILD_FOLDER/ng-calculator
                             cd $BUILD_FOLDER/ng-calculator
                             chmod +x docker-entrypoint.sh
                         '''
