@@ -51,7 +51,7 @@ pipeline {
                         '''
                     }
                 }
-              stage('Cleanup'){
+             /* stage('Cleanup'){
                   steps{
                       sh '''
                       if [[ "$(docker images |grep 'ng-calculator')" != "" ]]; then
@@ -59,7 +59,7 @@ pipeline {
                       fi
                       '''
                   }
-              }
+              }*/
               stage('Compile and Build') {
                     steps {
                         sh '''
@@ -74,11 +74,11 @@ pipeline {
                             '''
                       }
                   }
-                  stage('Check status'){
+               /*   stage('Check status'){
                       steps{
                           sh 'curl -i localhost:49160'
                       }
-                  }
+                  }*/
             }
     }
   }
