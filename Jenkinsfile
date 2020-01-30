@@ -5,7 +5,7 @@ pipeline {
         COMPONENT_VERSION='1.0'
         GIT_USER='aninarj'
         GIT_USER_PERSONAL_ACCESS_TOKEN='c9cd5796887bfd72c29a4efe046d6e13abb70ca3'
-        BUILD_FOLDER='/opt/ng-calculator_1'
+        BUILD_FOLDER='/opt'
         BASE_IMAGE_OS='docker-release-candidate-local.artifactory-lvn.broadcom.net/psd-standard-images/psd_centos7:latest'
     }
   
@@ -47,14 +47,14 @@ pipeline {
                     steps {
                         sh '''
                             mkdir -p $BUILD_FOLDER
-                            git clone https://github.com/AninaRJ/ng-calculator.git -b $REPO_TAG $BUILD_FOLDER/ng-calculator
+                            git clone https://github.com/AninaRJ/ng-calculator.git -b $REPO_TAG $BUILD_FOLDER
                         '''
                     }
                 }
               stage('Compile and Build') {
                     steps {
                         sh '''
-                            docker build -t ng-calculator:$BUILD_NUMBER -f Dockerfile
+                            docker build -t ng-calculator:$BUILD_NUMBER -f Dockerfile .
                         '''
                     }
                 }
