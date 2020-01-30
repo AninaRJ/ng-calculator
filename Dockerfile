@@ -16,5 +16,5 @@ RUN npm install
 COPY . .
 
 EXPOSE 8080
-USER 1010
+CHMOD +x docker-entrypoint.sh
 ENTRYPOINT ["./docker-entrypoint.sh"]
