@@ -60,6 +60,26 @@ pipeline {
                 }
             }
     }
+      stage('RUN'){
+          agent{
+              docker { 
+                    image 'centos:7'
+                    label "IRIS_Build_Machine"
+               }
+          }
+          stages{
+              stage('Start container'){
+                  steps{
+                      sh 'docker run -p 49160:7070 -d ng-calculator:$BUILD_NUMBER'
+                  }
+              }
+              stage('Check status'){
+                  steps{
+                      sh 'curl -i localhost:49160'
+                  }
+              }
+          }
+      }
   }
 }
   
