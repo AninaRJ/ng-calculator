@@ -71,7 +71,9 @@ pipeline {
           stages{
               stage('Start container'){
                   steps{
-                      sh 'docker run -p 49160:7070 -d ng-calculator:$BUILD_NUMBER'
+                      sh '''
+                            docker run -p 49160:7070 -d ng-calculator:$BUILD_NUMBER
+                        '''
                   }
               }
               stage('Check status'){
