@@ -87,7 +87,7 @@ pipeline {
                                 ngCalculator: {
                                     sh '''
                                     docker tag ng-calculator:$BUILD_NUMBER docker-release-candidate-local.artifactory-lvn.broadcom.net/rs_docker/ng-calculator:$BUILD_NUMBER
-                                    docker push docker-release-candidate-local.artifactory-lvn.broadcom.net/rs-docker/ng-calculator:$BUILD_NUMBER
+                                    docker push docker-release-candidate-local.artifactory-lvn.broadcom.net/rs_docker/ng-calculator:$BUILD_NUMBER
                                 '''
                                 }
                         )
