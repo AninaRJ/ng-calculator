@@ -3,8 +3,8 @@ pipeline {
     environment {
         REPO_TAG='master'
         COMPONENT_VERSION='1.0'
-        GIT_USER='aninarj'
-        GIT_USER_PERSONAL_ACCESS_TOKEN='c9cd5796887bfd72c29a4efe046d6e13abb70ca3'
+        GIT_USER='rabuild'
+        GIT_USER_PERSONAL_ACCESS_TOKEN='a9d77ae02eb833caa1190ca10512cb5fa79c3ea4'
         BUILD_FOLDER='/opt'
         BASE_IMAGE_OS='docker-release-candidate-local.artifactory-lvn.broadcom.net/psd-standard-images/psd_centos7:latest'
     }
