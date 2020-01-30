@@ -23,7 +23,6 @@ pipeline {
                         sh 'docker container ls'
                         sh 'docker login -u rabuild -p P@55word docker-release-candidate-local.artifactory-lvn.broadcom.net'
                         sh 'docker pull $BASE_IMAGE_OS'
-                        sh 'mkdir -p /root/local_m2/ra/.m2'
                     }
                 }
             }
@@ -42,53 +41,8 @@ pipeline {
                     steps {
                         sh 'export'
                         sh 'yum -y install git'
-                        sh 'yum -y install gcc'
-                        sh 'yum -y install gcc-c++'
-                        sh 'yum -y install make'
-                        sh 'yum -y install ncurses-devel'
-                        sh 'yum -y install zlib-devel'
-                        sh 'yum -y install unixODBC-devel'
                         sh 'yum -y install unzip'
                         sh 'yum -y install docker-client'
-                        sh 'yum -y install wget'
-                        
-                        sh '''
-                            cd /opt
-                            curl -o jdk-8u231-linux-x64.rpm http://artifactory-lvn.broadcom.net/artifactory/generic-third-party-local/java/jdk/jdk-8u231-linux-x64.rpm
-                            rpm -i jdk-8u231-linux-x64.rpm
-                            
-                            M2_HOME=/opt/apache-maven-3.2.3
-                            if [ ! -d $M2_HOME ]
-                            then
-                                curl -o apache-maven-3.2.3-bin.tar.gz http://artifactory-lvn.broadcom.net/artifactory/generic-third-party-local/riskfort/apache-maven-3.2.3-bin.tar.gz
-                                tar xfz apache-maven-3.2.3-bin.tar.gz
-                            fi
-                            
-                            ANT_HOME=/opt/apache-ant-1.9.2
-                            if [ ! -d $ANT_HOME ]
-                            then
-                                curl -o apache-ant-1.9.2-bin.tar.gz http://artifactory-lvn.broadcom.net/artifactory/generic-third-party-local/riskfort/apache-ant-1.9.2-bin.tar.gz
-                                tar xfz apache-ant-1.9.2-bin.tar.gz
-                            fi
-                            
-                            if [ ! -f $ANT_HOME/lib/maven-ant-tasks-2.1.3.jar ]
-                            then
-                                curl -o $ANT_HOME/lib/maven-ant-tasks-2.1.3.jar http://artifactory-lvn.broadcom.net/artifactory/generic-third-party-local/riskfort/maven-ant-tasks-2.1.3.jar
-                            fi
-                            
-                            if [ ! -f $ANT_HOME/lib/xmltask.jar ]
-                            then
-                                curl -o $ANT_HOME/lib/xmltask.jar.zip http://artifactory-lvn.broadcom.net/artifactory/generic-third-party-local/riskfort/xmltask.jar.zip
-                                unzip -d $ANT_HOME/lib $ANT_HOME/lib/xmltask.jar.zip
-                            fi
-                            
-                            if [ ! -f $ANT_HOME/lib/ant-contrib-1.0b3.jar ]
-                            then
-                                curl -o ant-contrib-1.0b3-bin.tar.gz http://artifactory-lvn.broadcom.net/artifactory/generic-third-party-local/riskfort/ant-contrib-1.0b3-bin.tar.gz
-                                tar xfz ant-contrib-1.0b3-bin.tar.gz
-                                mv -f ant-contrib/ant-contrib-1.0b3.jar $ANT_HOME/lib
-                            fi
-                        '''
                     }
                 }
               stage('Checkout Code') {
