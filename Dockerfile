@@ -15,7 +15,7 @@ RUN npm install
 # Bundle app source
 COPY . .
 
-EXPOSE 9080
+#EXPOSE 9080
 
-RUN npm start
+#RUN npm start
 #ENTRYPOINT ["./docker-entrypoint.sh"]
