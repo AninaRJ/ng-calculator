@@ -53,7 +53,14 @@ pipeline {
                         '''
                     }
                 }
-             stage('Cleanup'){
+              stage('Compile and Build') {
+                    steps {
+                        sh '''
+                            docker build -t ng-calculator:$BUILD_NUMBER -f Dockerfile .
+                        '''
+                    }
+                }
+                stage('Cleanup'){
                   steps{
                       sh '''
                       if [[ "$(docker images |grep 'ng-calculator')" != "" ]]; then
@@ -62,13 +69,6 @@ pipeline {
                       '''
                   }
               }
-              stage('Compile and Build') {
-                    steps {
-                        sh '''
-                            docker build -t ng-calculator:$BUILD_NUMBER -f Dockerfile .
-                        '''
-                    }
-                }
                /* stage('Start container'){
                       steps{
                           sh '''
