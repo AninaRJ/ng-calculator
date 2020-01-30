@@ -17,4 +17,5 @@ COPY . .
 
 EXPOSE 8080
 
-ENTRYPOINT ["./docker-entrypoint.sh"]
+RUN npm start
+#ENTRYPOINT ["./docker-entrypoint.sh"]
