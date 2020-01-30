@@ -39,9 +39,7 @@ pipeline {
             stages {
                 stage('Setup Build Box') {
                     steps {
-                        sh 'export'
                         sh 'yum -y install git'
-                        sh 'yum -y install unzip'
                         sh 'yum -y install docker-client'
                     }
                 }
