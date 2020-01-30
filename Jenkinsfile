@@ -6,6 +6,7 @@ pipeline {
         GIT_USER='aninarj'
         GIT_USER_PERSONAL_ACCESS_TOKEN='c9cd5796887bfd72c29a4efe046d6e13abb70ca3'
         BUILD_FOLDER='/opt/ng-calculator_1'
+        BASE_IMAGE_OS='docker-release-candidate-local.artifactory-lvn.broadcom.net/psd-standard-images/psd_centos7:latest'
     }
   
   stages {
