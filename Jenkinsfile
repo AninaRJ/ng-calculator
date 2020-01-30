@@ -54,7 +54,7 @@ pipeline {
               stage('Cleanup'){
                   steps{
                       sh '''
-                      if [[ "$(docker images |grep 'ng-calculator')" == "" ]]; then
+                      if [[ "$(docker images |grep 'ng-calculator')" != "" ]]; then
                           docker rmi $(docker images |grep 'ng-calculator')
                       fi
                       '''
