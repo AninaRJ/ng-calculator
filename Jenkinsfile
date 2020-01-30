@@ -53,7 +53,7 @@ pipeline {
                         '''
                     }
                 }
-             /* stage('Cleanup'){
+             /*stage('Cleanup'){
                   steps{
                       sh '''
                       if [[ "$(docker images |grep 'ng-calculator')" != "" ]]; then
@@ -69,18 +69,39 @@ pipeline {
                         '''
                     }
                 }
-                stage('Start container'){
+               /* stage('Start container'){
                       steps{
                           sh '''
                                 docker run --name ng-calculator -p 9080:8080 -d ng-calculator:$BUILD_NUMBER
                             '''
                       }
                   }
-               /*   stage('Check status'){
+                  stage('Check status'){
                       steps{
                           sh 'curl -i localhost:49160'
                       }
                   }*/
+                stage('Upload Images') {
+                    steps {
+                        parallel (
+                                ngCalculator: {
+                                    sh '''
+                                    docker tag ng-calculator:$BUILD_NUMBER docker-release-candidate-local.artifactory-lvn.broadcom.net/rs_docker/ng-calculator:$BUILD_NUMBER
+                                    docker push docker-release-candidate-local.artifactory-lvn.broadcom.net/rs-docker/ng-calculator:$BUILD_NUMBER
+                                '''
+                                }
+                        )
+                    }
+                }
+                stage('Cleanup') {
+                    steps {
+                        sh '''
+                            docker image rm ng-calculator:$BUILD_NUMBER
+                           
+                        '''
+                    }
+                }
+
             }
     }
   }
