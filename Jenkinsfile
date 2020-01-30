@@ -51,6 +51,13 @@ pipeline {
                         '''
                     }
                 }
+              stage('Cleanup'){
+                  steps{
+                      sh '''
+                            docker rmi $(docker images |grep 'ng-calculator')
+                      '''
+                  }
+              }
               stage('Compile and Build') {
                     steps {
                         sh '''
