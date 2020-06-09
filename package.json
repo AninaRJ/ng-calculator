@@ -5,6 +5,7 @@
   "main": "server.js",
   "scripts": {
     "start": "node server.js",
+    "build": "node build",
     "docker-build": "docker build -t ngCalculator .",
     "docker": "npm run docker-build && docker run -it --rm -p 3000:3000 -p 3001:3001 ngCalculator",
     "e2e": "tsc && concurrently \"http-server\" \"protractor protractor.config.js\"",
