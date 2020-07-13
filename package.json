@@ -1,7 +1,7 @@
 {
   "name": "ng-calculator",
-  "version": "1.1.0",
-  "description": "A sample calculator app",
+  "version": "1.1.1",
+  "description": "A sample calculator app - build trigger",
   "main": "server.js",
   "engines": {
     "node": "12.x",
